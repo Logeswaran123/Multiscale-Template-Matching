@@ -1,0 +1,19 @@
+Requirements:
+
+python version == 3.6.4
+numpy version == 1.16.4
+cv2 version == 3.4.2
+argparse version == 1.1
+json version == 2.0.9
+skimage version == 0.15.0
+os
+timeit
+_____________________________________________________________________________
+Running the script in terminal:
+python matching3.py --template <image crops folder> --images <images folder>
+
+example:
+python matching3.py --template images_crops --images images
+_____________________________________________________________________________
+
+
