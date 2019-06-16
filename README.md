@@ -30,7 +30,7 @@ In this approach, I tried to increase the speed and accuracy by using SIFT for f
 
 *Note: Json file format doesn't support tuples, so tuples are converted as lists in the output json file.*
 
-*Note: Add your images to one folder and Add your templates to a different folder*
+*Note: Add your images to one folder and Add your templates to a different folder.*
 
 
 
