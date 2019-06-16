@@ -28,11 +28,12 @@ In this approach, I tried feature matching with various algorithms like SIFT, SU
 
 In this approach, I tried to increase the speed and accuracy by using SIFT for feature detection and Flann based matcher for matching the templates and images with the best number of matches. This gives 10 times better performance interms of speed. This is the approach I finally used for this task.
 
-Note: Json file format doesn't support tuples, so tuples are converted as lists in the output json file.
+*Note: Json file format doesn't support tuples, so tuples are converted as lists in the output json file.*
 
 
 
 
+**To Learn more, connect with me on** [Linkedin](https://www.linkedin.com/in/logeswaran-sivakumar-466129165 "Linkedin account")
 
 Happy learning! :-)
 
