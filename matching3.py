@@ -62,7 +62,7 @@ def find_matches(des_query, des_train, kp1, kp2):
     
     # ratio test
     for i,(m,n) in enumerate(matches):
-        if m.distance < 0.6*n.distance:
+        if m.distance < 0.7*n.distance:
             matchesMask[i]=[1,0]
             key_matches = key_matches + 1
     
@@ -84,7 +84,7 @@ def temp_query_match(coll_train, coll_query, kp_des_train, kp_des_query, query_n
         print(train_name[i])
         print('------------------------------')
         
-        if (train_name[i] == 'image_crops_103.jpg') or (train_name[i] == 'image_crops_185.jpg') or (train_name[i] == 'image_crops_201.jpg') or (train_name[i] == 'image_crops_030.jpg') or (train_name[i] == 'image_crops_105.jpg') or (train_name[i] == 'image_crops_220.jpg') or (train_name[i] == 'image_crops_239.jpg'): #because this image data is causing problem, so skip it
+        if (train_name[i] == 'INSERT IMAGE NAMES THAT DOES NOT HAVE MANY FEATURES OR TOO SMALL'): #because this image data is causing problem, so skip it
             dicto['na'].append((train_name[i],[]))
             continue
         
