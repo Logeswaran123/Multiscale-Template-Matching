@@ -36,7 +36,4 @@ In this approach, I tried to increase the speed and accuracy by using SIFT for f
 
 **To Learn more, connect with me on** [Linkedin](https://www.linkedin.com/in/logeswaran-sivakumar-466129165 "Linkedin account")
 
-Happy learning! :-)
-
-
-
+Happy Learning! 😄
