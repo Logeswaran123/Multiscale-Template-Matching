@@ -45,10 +45,10 @@ def kp_des(coll_query, coll_train):
 
 # define function for finding key matches
 def find_matches(des_query, des_train, kp1, kp2):
-    
+
     start1 = timer()
     key_matches = 0
-    
+
     # FLANN parameters
     FLANN_INDEX_KDTREE = 0
     index_params = dict(algorithm = FLANN_INDEX_KDTREE, trees = 10)
@@ -56,17 +56,23 @@ def find_matches(des_query, des_train, kp1, kp2):
     flann = cv2.FlannBasedMatcher(index_params,search_params)
     if(len(kp1)>=2 and len(kp2)>=2) :
         matches = flann.knnMatch(des_query, des_train, k=2)
-    
+
     # Need to draw only good matches, so create a mask
     matchesMask = [[0,0] for i in range(len(matches))]
-    
+
     # ratio test
     for i,(m,n) in enumerate(matches):
         if m.distance < 0.7*n.distance:
             matchesMask[i]=[1,0]
             key_matches = key_matches + 1
-    
-    print('key_matches: ', key_matches)
+
+            # get the coordinates of the matching keypoints
+            query_idx = m.queryIdx
+            train_idx = m.trainIdx
+            (x1,y1) = kp1[query_idx].pt
+            (x2,y2) = kp2[train_idx].pt
+            print("Coordinates of matching keypoints: ({}, {}) and ({}, {})".format(x1, y1, x2, y2))
+
     end1 = timer()
     print('find_match_time: ', (end1 - start1))
     return(key_matches, matches)
@@ -167,8 +173,8 @@ def main():
     train_name = load_images_from_folder(args["template"])
     query_name = load_images_from_folder(args["images"])
     # your path 
-    col_dir_train = args["template"] + "/*.jpg"
-    col_dir_query = args["images"] + "/*.jpg"
+    col_dir_train = args["template"] + "/*.png;*.jpg;*.bmp"
+    col_dir_query = args["images"] + "/*.png;*.jpg;*.bmp"
     # creating a collection with the available images
     coll_train = imread_collection(col_dir_train)
     coll_query = imread_collection(col_dir_query)
@@ -180,7 +186,7 @@ def main():
 
 
 # Sift object
-detector=cv2.xfeatures2d.SIFT_create()
+detector=cv2.SIFT_create()
 
 # initialize
 MIN_MATCH_COUNT=60
